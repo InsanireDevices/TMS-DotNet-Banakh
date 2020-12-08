@@ -19,13 +19,13 @@ namespace TMS.DotNet06.TaskList
             Done
         }
 
-        public TaskCard(string description, DateTime startDate, DateTime endDate, string status)
+        public TaskCard(string description, DateTime startDate, DateTime endDate)
         {
             ID = IdGenerator();
             Description = description;
             StartDate = startDate;
             EndDate = endDate;
-            Status = Enum.Parse<StatusList>(status).ToString();
+            Status = Enum.Parse<StatusList>("ToDo").ToString();
         }
 
         private static string IdGenerator()
