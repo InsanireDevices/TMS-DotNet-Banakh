@@ -6,8 +6,12 @@ namespace TMS.DotNet06.TaskList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine();
+            Console.WriteLine("----------TASK TRACKER----------\n");
+
+
+
+            Console.WriteLine("Press any key to close app.");
+            Console.ReadKey();
         }
     }
 }
