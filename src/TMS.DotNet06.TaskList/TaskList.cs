@@ -140,8 +140,55 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("------------------");
             Console.WriteLine("|  Delete Task   |");
             Console.WriteLine("------------------\n");
-            ShowMenu();
-            MenuInputHanler();
+
+            if (this.taskCards.Count == 0)
+            {
+                Console.Clear();
+                ShowHeadLine();
+                
+                Console.WriteLine("ERROR : Your Task List is Empty!\n");
+                
+                ShowMenu();
+                MenuInputHanler();
+            }
+
+            else
+            {
+                for (int i = 0; i < this.taskCards.Count; i++)
+                {
+                    Console.WriteLine($"------Task {i + 1}------");
+                    Console.WriteLine($"ID : {taskCards[i].ID}");
+                    Console.WriteLine($"Description : {taskCards[i].Description}");
+                    Console.WriteLine($"Timing :  {taskCards[i].StartDate.ToString("dd.MM.yyyy")} -> {taskCards[i].EndDate.ToString("dd.MM.yyyy")}");
+                    Console.WriteLine($"Status : {taskCards[i].Status}");
+                    Console.WriteLine("------------------\n");
+                }
+
+                Console.Write("Choose Task to Delete : ");
+
+            taskInput:
+                try
+                {
+                    taskCards.Remove(taskCards[Convert.ToInt32(Console.ReadLine()) - 1]);
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("ERROR : Must be number greater than zero!");
+                    Console.ResetColor();
+                    goto taskInput;
+                }
+                              
+                Console.Clear();
+                ShowHeadLine();
+
+                Console.WriteLine("Task succesfully deleted!\n");
+
+                ShowMenu();
+                MenuInputHanler();
+            }
+
+
         }
 
         public void ShowTasks()
@@ -156,6 +203,8 @@ namespace TMS.DotNet06.TaskList
 
             if (this.taskCards.Count == 0)
             {
+                Console.Clear();
+                ShowHeadLine();
                 Console.WriteLine("ERROR : Your Task List is Empty!\n");
             }
 
