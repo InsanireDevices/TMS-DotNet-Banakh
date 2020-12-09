@@ -1,6 +1,5 @@
-﻿
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Globalization;
 using System;
 
 namespace TMS.DotNet06.TaskList
@@ -15,6 +14,11 @@ namespace TMS.DotNet06.TaskList
             this.taskCards = taskCards;
         }
 
+        public void ShowHeadLine()
+        {
+            Console.WriteLine("----------TASK TRACKER----------\n");
+        }
+
         public void ShowMenu()
         {
             Console.WriteLine("-------MENU-------");
@@ -22,6 +26,7 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("Edit Task   -> [E]");
             Console.WriteLine("Delete Task -> [D]");
             Console.WriteLine("Show Tasks  -> [S]");
+            Console.WriteLine("Close App   -> [C]");
             Console.WriteLine("------------------\n");
         }
 
@@ -46,11 +51,19 @@ namespace TMS.DotNet06.TaskList
                 case "S":
                     ShowTasks();
                     break;
+                case "C":
+                    Environment.Exit(1);
+                    break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("\nERROR : Invalid Input! Input listed characters in uppercase.\n");
+                    
+                    ShowHeadLine();
+                    
+                    Console.WriteLine("ERROR : Invalid Input! Input listed characters in uppercase.\n");
+                    
                     ShowMenu();
                     MenuInputHanler();
+                    
                     break;
             }
         }
@@ -63,9 +76,11 @@ namespace TMS.DotNet06.TaskList
 
             Console.Clear();
 
-            Console.WriteLine("-------------");
-            Console.WriteLine("Add action : ");
-            Console.WriteLine("-------------\n");
+            ShowHeadLine();
+
+            Console.WriteLine("------------------");
+            Console.WriteLine("|   Add action   |");
+            Console.WriteLine("------------------\n");
 
             Console.Write("Enter Description : ");
             description = Console.ReadLine();
@@ -83,7 +98,7 @@ namespace TMS.DotNet06.TaskList
             if (startDate > endDate)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error : END day is less than START day!");
+                Console.WriteLine("ERROR : END day is less than START day!");
                 Console.ResetColor();
 
                 goto dateInput;
@@ -93,22 +108,25 @@ namespace TMS.DotNet06.TaskList
 
             taskCards.Add(new TaskCard(description, startDate, endDate));
 
-
-            Console.WriteLine("Task created successfully!");
+            Console.Clear();
+         
+            ShowHeadLine();
             
-            ShowTasks();
+            Console.WriteLine("Task created successfully!\n");
             
             ShowMenu();
-            
             MenuInputHanler();
         }
 
         public void Edit()
         {
             Console.Clear();
-            Console.WriteLine("--------");
-            Console.WriteLine("Edit");
-            Console.WriteLine("--------");
+
+            ShowHeadLine();
+
+            Console.WriteLine("------------------");
+            Console.WriteLine("|   Edit Task    |");
+            Console.WriteLine("------------------\n");
             ShowMenu();
             MenuInputHanler();
         }
@@ -116,24 +134,43 @@ namespace TMS.DotNet06.TaskList
         public void Delete()
         {
             Console.Clear();
-            Console.WriteLine("--------");
-            Console.WriteLine("Delete");
-            Console.WriteLine("--------");
+
+            ShowHeadLine();
+
+            Console.WriteLine("------------------");
+            Console.WriteLine("|  Delete Task   |");
+            Console.WriteLine("------------------\n");
             ShowMenu();
             MenuInputHanler();
         }
+
         public void ShowTasks()
         {
             Console.Clear();
-            Console.WriteLine("--------------");
-            Console.WriteLine("Your Task List");
-            Console.WriteLine("--------------");
 
-            Console.WriteLine($"{taskCards[0].ID}");
-            Console.WriteLine($"{taskCards[0].Description}");
-            Console.WriteLine($"{taskCards[0].StartDate} -> {taskCards[0].EndDate}");
-            Console.WriteLine($"{taskCards[0].Status}");
-            TaskCard specifictaskcard = taskCards.FirstOrDefault(a => a.ID == taskCards[0].ID);
+            ShowHeadLine();
+
+            Console.WriteLine("------------------");
+            Console.WriteLine("| Your Task List |");
+            Console.WriteLine("------------------\n");
+
+            if (this.taskCards.Count == 0)
+            {
+                Console.WriteLine("ERROR : Your Task List is Empty!\n");
+            }
+
+            else
+            {
+                for (int i = 0; i < this.taskCards.Count; i++)
+                {
+                    Console.WriteLine($"------Task {i + 1}------");
+                    Console.WriteLine($"ID : {taskCards[i].ID}");
+                    Console.WriteLine($"Description : {taskCards[i].Description}");
+                    Console.WriteLine($"Timing :  {taskCards[i].StartDate.ToString("dd.MM.yyyy")} -> {taskCards[i].EndDate.ToString("dd.MM.yyyy")}");
+                    Console.WriteLine($"Status : {taskCards[i].Status}");
+                    Console.WriteLine("------------------\n");
+                }
+            }
 
             ShowMenu();
             MenuInputHanler();
@@ -150,7 +187,7 @@ namespace TMS.DotNet06.TaskList
             catch (Exception)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Error : Input is Incorrect!");
+                Console.WriteLine("ERROR : Input is Incorrect!");
                 Console.ResetColor();
 
                 Console.Write(request);
