@@ -9,6 +9,7 @@ namespace TMS.DotNet06.TaskList
     {
         public void ShowMenu()
         {
+            
             Console.WriteLine("-------MENU-------");
             Console.WriteLine("Add Task    -> [A]");
             Console.WriteLine("Edit Task   -> [E]");
@@ -19,29 +20,64 @@ namespace TMS.DotNet06.TaskList
             ConsoleKeyInfo key;
             key = Console.ReadKey();
 
-            switch(key)
+            switch (key.KeyChar)
             {
-                case (key.KeyChar = 'a')
+                case 'A':
+                    Add();
+                    break;
+                case 'E':
+                    Edit();
+                    break;
+                case 'D':
+                    Delete();
+                    break;
+                case 'S':
+                    ShowTasks();
+                    break;
+                   
+                default:
+                    Console.Clear();
+                    Console.WriteLine("--------");
+                    Console.WriteLine("ERROR : Invalid Input! Input listed characters in uppercase.");
+                    Console.WriteLine("--------");
+                    ShowMenu();
+                    break;
             }
         }
 
         public void ShowTasks()
         {
+            Console.Clear();
+            Console.WriteLine("--------");
+            Console.WriteLine("ShowTasks");
+            Console.WriteLine("--------");
             ShowMenu();   
         }
 
         public void Add()
         {
+            Console.Clear();
+            Console.WriteLine("--------");
+            Console.WriteLine("Add");
+            Console.WriteLine("--------");
             ShowMenu();
         }
 
         public void Edit()
         {
+            Console.Clear();
+            Console.WriteLine("--------");
+            Console.WriteLine("Edit");
+            Console.WriteLine("--------");
             ShowMenu();
         }
 
         public void Delete()
         {
+            Console.Clear();
+            Console.WriteLine("--------");
+            Console.WriteLine("Delete");
+            Console.WriteLine("--------");
             ShowMenu();
         }
     }
