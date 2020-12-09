@@ -8,39 +8,42 @@ namespace TMS.DotNet06.TaskList
     class TaskList
     {
         public void ShowMenu()
-        {
-            
+        {           
             Console.WriteLine("-------MENU-------");
             Console.WriteLine("Add Task    -> [A]");
             Console.WriteLine("Edit Task   -> [E]");
             Console.WriteLine("Delete Task -> [D]");
             Console.WriteLine("Show Tasks  -> [S]");
             Console.WriteLine("------------------\n");
+        }
 
-            ConsoleKeyInfo key;
-            key = Console.ReadKey();
+        public void MenuInputHanler() 
+        {
+            string key;
 
-            switch (key.KeyChar)
+            Console.Write("Choose action : ");
+            key = Console.ReadLine();
+
+            switch (key)
             {
-                case 'A':
+                case "A":
                     Add();
                     break;
-                case 'E':
+                case "E":
                     Edit();
                     break;
-                case 'D':
+                case "D":
                     Delete();
                     break;
-                case 'S':
+                case "S":
                     ShowTasks();
                     break;
-                   
+
                 default:
                     Console.Clear();
-                    Console.WriteLine("--------");
-                    Console.WriteLine("ERROR : Invalid Input! Input listed characters in uppercase.");
-                    Console.WriteLine("--------");
+                    Console.WriteLine("ERROR : Invalid Input! Input listed characters in uppercase.\n");
                     ShowMenu();
+                    MenuInputHanler();
                     break;
             }
         }
@@ -51,7 +54,8 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("--------");
             Console.WriteLine("ShowTasks");
             Console.WriteLine("--------");
-            ShowMenu();   
+            ShowMenu();
+            MenuInputHanler();
         }
 
         public void Add()
@@ -61,6 +65,7 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("Add");
             Console.WriteLine("--------");
             ShowMenu();
+            MenuInputHanler();
         }
 
         public void Edit()
@@ -70,6 +75,7 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("Edit");
             Console.WriteLine("--------");
             ShowMenu();
+            MenuInputHanler();
         }
 
         public void Delete()
@@ -79,6 +85,7 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("Delete");
             Console.WriteLine("--------");
             ShowMenu();
+            MenuInputHanler();
         }
     }
 }
