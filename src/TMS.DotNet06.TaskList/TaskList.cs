@@ -69,7 +69,7 @@ namespace TMS.DotNet06.TaskList
             }
         }
 
-        public void Add()
+        private void Add()
         {
             string description;
             DateTime startDate;
@@ -113,7 +113,7 @@ namespace TMS.DotNet06.TaskList
             MenuInputHanler();
         }
 
-        public void Edit()
+        private void Edit()
         {
             string description;
             DateTime startDate;
@@ -211,7 +211,7 @@ namespace TMS.DotNet06.TaskList
             MenuInputHanler();
         }
 
-        public void Delete()
+        private void Delete()
         {
             Console.Clear();
             ShowHeadLine();
@@ -260,7 +260,7 @@ namespace TMS.DotNet06.TaskList
 
         }
 
-        public void ShowTasks()
+        private void ShowTasks()
         {
             Console.Clear();
             ShowHeadLine();
@@ -296,7 +296,7 @@ namespace TMS.DotNet06.TaskList
             Console.WriteLine("------------------\n");
         }
 
-        private static DateTime DateInputCheck(string dayInput, string request)
+        private DateTime DateInputCheck(string dayInput, string request)
         {
             DateTime dayOutput;
 
