@@ -138,21 +138,10 @@ namespace TMS.DotNet06.TaskList
                 description = Console.ReadLine();
 
                 TimingInputHandler(out startDate, out endDate);
-//-------------------------------------------------------------------------------------------------------
-            statusInput:
-                Console.Write("Enter ToDo\\InProgress\\Done Status : ");
-                try
-                {
-                    status = Enum.Parse<TaskCard.StatusList>(Console.ReadLine()).ToString();
-                }
-                catch (Exception)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR : Status can take only next values : ToDo, InProgress, Done");
-                    Console.ResetColor();
-                    goto statusInput;
-                }
-//---------------------------------------------------------------------------------------------------------------                
+
+                Console.Write("Enter ToDo[0]\\InProgress[1]\\Done Status[2] : ");
+                status = StatusInputHandler(Console.ReadLine(), "Enter ToDo[0]\\InProgress[1]\\Done Status[2] : ");
+                
                 taskCards[task].Description = description;
                 taskCards[task].StartDate = startDate;
                 taskCards[task].EndDate = endDate;
@@ -171,7 +160,6 @@ namespace TMS.DotNet06.TaskList
 
         private void Delete()
         {
-            int task;
             Console.Clear();
             ShowHeadLine();
             Console.WriteLine("------------------");
@@ -301,6 +289,35 @@ namespace TMS.DotNet06.TaskList
                 Console.ResetColor();
                 return TaskNumberInputHandler();
             }      
+        }
+
+        private string StatusInputHandler(string status, string request)
+        {
+            string statusOutput;
+            int statusOutputInt;
+            try
+            {           
+                statusOutput = Enum.Parse<TaskCard.StatusList>(status).ToString();
+                statusOutputInt = (int)Enum.Parse<TaskCard.StatusList>(status);
+                
+                if (statusOutputInt > 2 || statusOutputInt < 0)
+                {
+                    Console.WriteLine("ERROR : Invalid Input!");
+                    Console.Write(request);
+                    return StatusInputHandler(Console.ReadLine(), request);
+                }                    
+                
+                else
+                    return statusOutput;
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR : Invalid Input!");                
+                Console.ResetColor();
+                Console.Write(request);
+                return StatusInputHandler(Console.ReadLine(),request);
+            }
         }
     }
 }
