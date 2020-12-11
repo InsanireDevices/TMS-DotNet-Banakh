@@ -123,22 +123,9 @@ namespace TMS.DotNet06.TaskList
                 {
                     ShowTaskCard(i);
                 }
-//----------------------------------------------------------------------------------------
-            taskEditInput:
-                Console.Write("Choose Task to Edit : ");
 
-                try
-                {
-                    task = Convert.ToInt32(Convert.ToUInt32(Console.ReadLine()) - 1);
-                }
-                catch (Exception)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR : Must be number greater than zero!");
-                    Console.ResetColor();
-                    goto taskEditInput;
-                }
-//------------------------------------------------------------------------------------------
+                task = TaskNumberInputHandler();
+
                 Console.Clear();
                 ShowHeadLine();
                 Console.WriteLine("------------------");
@@ -151,7 +138,7 @@ namespace TMS.DotNet06.TaskList
                 description = Console.ReadLine();
 
                 TimingInputHandler(out startDate, out endDate);
-
+//-------------------------------------------------------------------------------------------------------
             statusInput:
                 Console.Write("Enter ToDo\\InProgress\\Done Status : ");
                 try
@@ -184,6 +171,7 @@ namespace TMS.DotNet06.TaskList
 
         private void Delete()
         {
+            int task;
             Console.Clear();
             ShowHeadLine();
             Console.WriteLine("------------------");
@@ -205,22 +193,9 @@ namespace TMS.DotNet06.TaskList
                 {
                     ShowTaskCard(i);
                 }
-//----------------------------------------------------------------------------------------------
-            taskInput:
-                Console.Write("Choose Task to Delete : ");
+
+                taskCards.Remove(taskCards[TaskNumberInputHandler()]);
                 
-                try
-                {
-                    taskCards.Remove(taskCards[Convert.ToInt32(Console.ReadLine()) - 1]);
-                }
-                catch (Exception)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR : Must be number greater than zero!");
-                    Console.ResetColor();
-                    goto taskInput;
-                }
- //-------------------------------------------------------------------------------------------                             
                 Console.Clear();
                 ShowHeadLine();
                 Console.WriteLine("Task succesfully deleted!\n");
@@ -259,7 +234,7 @@ namespace TMS.DotNet06.TaskList
 
         private void ShowTaskCard(int taskNumber)
         {
-            Console.WriteLine($"------Task {taskNumber + 1}------");
+            Console.WriteLine($"-----Task #{taskNumber + 1}------");
             Console.WriteLine($"ID : {taskCards[taskNumber].ID}");
             Console.WriteLine($"Description : {taskCards[taskNumber].Description}");
             Console.WriteLine($"Timing :  {taskCards[taskNumber].StartDate.ToString("dd.MM.yyyy")} -> {taskCards[taskNumber].EndDate.ToString("dd.MM.yyyy")}");
@@ -300,6 +275,32 @@ namespace TMS.DotNet06.TaskList
                 Console.ResetColor();
                 TimingInputHandler(out startDate, out endDate);
             }
+        }
+
+        private int TaskNumberInputHandler()
+        {
+            int task;
+            Console.Write("Choose Task : ");
+
+            try
+            {
+                task = Convert.ToInt32(Convert.ToUInt32(Console.ReadLine()) - 1);
+
+                if (this.taskCards.Count < task)
+                { 
+                    Console.WriteLine("ERROR : No Task with such number!");
+                    return TaskNumberInputHandler();
+                }
+                else
+                    return task;
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR : No Task with such number!");
+                Console.ResetColor();
+                return TaskNumberInputHandler();
+            }      
         }
     }
 }
