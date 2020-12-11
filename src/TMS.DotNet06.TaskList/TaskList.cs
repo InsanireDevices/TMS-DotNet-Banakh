@@ -84,25 +84,7 @@ namespace TMS.DotNet06.TaskList
             Console.Write("Enter Description : ");
             description = Console.ReadLine();
 
-            #region Date Input
-
-            dateInput:
-
-            Console.Write("Ented Start Date : ");
-            startDate = DateInputCheck(Console.ReadLine(), "Ented Start Date : ");
-
-            Console.Write("Enter End Date : ");
-            endDate = DateInputCheck(Console.ReadLine(), "Enter End Date : ");
-
-            if (startDate > endDate)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("ERROR : END day is less than START day!");
-                Console.ResetColor();
-                goto dateInput;
-            }
-
-            #endregion
+            TimingInputHandler(out startDate, out endDate);
 
             taskCards.Add(new TaskCard(description, startDate, endDate));
 
@@ -138,8 +120,10 @@ namespace TMS.DotNet06.TaskList
             else
             {
                 for (int i = 0; i < this.taskCards.Count; i++)
-                    ShowTaskCard(i);              
-            
+                {
+                    ShowTaskCard(i);
+                }
+//----------------------------------------------------------------------------------------
             taskEditInput:
                 Console.Write("Choose Task to Edit : ");
 
@@ -154,7 +138,7 @@ namespace TMS.DotNet06.TaskList
                     Console.ResetColor();
                     goto taskEditInput;
                 }
-
+//------------------------------------------------------------------------------------------
                 Console.Clear();
                 ShowHeadLine();
                 Console.WriteLine("------------------");
@@ -166,20 +150,7 @@ namespace TMS.DotNet06.TaskList
                 Console.Write("Enter Description : ");
                 description = Console.ReadLine();
 
-            dateInput:
-                Console.Write("Ented Start Date : ");
-                startDate = DateInputCheck(Console.ReadLine(), "Ented Start Date : ");
-
-                Console.Write("Enter End Date : ");
-                endDate = DateInputCheck(Console.ReadLine(), "Enter End Date : ");
-
-                if (startDate > endDate)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("ERROR : END day is less than START day!");
-                    Console.ResetColor();
-                    goto dateInput;
-                }
+                TimingInputHandler(out startDate, out endDate);
 
             statusInput:
                 Console.Write("Enter ToDo\\InProgress\\Done Status : ");
@@ -194,7 +165,7 @@ namespace TMS.DotNet06.TaskList
                     Console.ResetColor();
                     goto statusInput;
                 }
-                
+//---------------------------------------------------------------------------------------------------------------                
                 taskCards[task].Description = description;
                 taskCards[task].StartDate = startDate;
                 taskCards[task].EndDate = endDate;
@@ -234,7 +205,7 @@ namespace TMS.DotNet06.TaskList
                 {
                     ShowTaskCard(i);
                 }
-
+//----------------------------------------------------------------------------------------------
             taskInput:
                 Console.Write("Choose Task to Delete : ");
                 
@@ -249,7 +220,7 @@ namespace TMS.DotNet06.TaskList
                     Console.ResetColor();
                     goto taskInput;
                 }
-                              
+ //-------------------------------------------------------------------------------------------                             
                 Console.Clear();
                 ShowHeadLine();
                 Console.WriteLine("Task succesfully deleted!\n");
@@ -311,6 +282,23 @@ namespace TMS.DotNet06.TaskList
                 Console.ResetColor();
                 Console.Write(request);
                 return DateInputCheck(Console.ReadLine(), request);
+            }
+        }
+
+        private void TimingInputHandler(out DateTime startDate, out DateTime endDate)
+        {         
+            Console.Write("Ented Start Date : ");
+            startDate = DateInputCheck(Console.ReadLine(), "Ented Start Date : ");
+
+            Console.Write("Enter End Date : ");
+            endDate = DateInputCheck(Console.ReadLine(), "Enter End Date : ");
+
+            if (startDate > endDate)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("ERROR : END day is less than START day!");
+                Console.ResetColor();
+                TimingInputHandler(out startDate, out endDate);
             }
         }
     }
