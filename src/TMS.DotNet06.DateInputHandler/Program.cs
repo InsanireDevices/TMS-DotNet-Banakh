@@ -6,27 +6,29 @@ namespace TMS.DotNet06.DateInputHandler
     {
         static void Main(string[] args)
         {
-            DateTime DateToCheck;
-            Boolean DateIsCorrect = false;
-            
-            while(!DateIsCorrect)
-            {
-                try
-                {
-                    Console.Write("Please enter date : ");
-                    DateToCheck = DateTime.Parse(Console.ReadLine());                           
-                    Console.Write("Day is : ");
-                    Console.Write(DateToCheck.DayOfWeek + "\n");   
-                    DateIsCorrect = true;
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Error: Incorrect date! Please, enter date in yyyy-mm-dd format.");
-                }
-            }
+            string dateRequest = "Please enter date : ";
+            DateTime inputDate;
 
+            Console.Write(dateRequest);
+            inputDate = DateInputHandler(Console.ReadLine(), dateRequest);
+            Console.Write($"Day is : {inputDate.DayOfWeek}\n");
             Console.WriteLine("Press any key to close app.");
             Console.ReadKey();
+        }
+
+        static DateTime DateInputHandler(string DateToCheck, string request)
+        {
+            DateTime dateOutput;
+            try
+            {    
+                dateOutput = DateTime.Parse(DateToCheck);
+                return dateOutput;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error: Incorrect input!");
+                return DateInputHandler(Console.ReadLine(), request);
+            }
         }
     }
 }
