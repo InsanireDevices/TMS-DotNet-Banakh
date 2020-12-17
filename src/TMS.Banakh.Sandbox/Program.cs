@@ -6,7 +6,15 @@ namespace TMS.Banakh.Sandbox
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var penOne = new Pen();
+            var penTwo = new Pen(123);
+
+            Console.WriteLine(penOne);
+            Console.WriteLine(penOne.Color);
+            Console.WriteLine(penTwo);
+            Console.WriteLine(penTwo.Color);
+
+            Console.ReadKey();
         }
     }
 }
