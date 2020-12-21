@@ -4,6 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.DateInputHandler", "src\TMS.DotNet06.DateInputHandler\TMS.DotNet06.DateInputHandler.csproj", "{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.TaskList", "src\TMS.DotNet06.TaskList\TMS.DotNet06.TaskList.csproj", "{2E0C0391-53A7-4022-B307-D98409015D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,7 +15,11 @@ Global
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.Build.0 = Release|Any CP
+		{2E0C0391-53A7-4022-B307-D98409015D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0C0391-53A7-4022-B307-D98409015D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0C0391-53A7-4022-B307-D98409015D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0C0391-53A7-4022-B307-D98409015D1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
