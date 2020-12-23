@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.DayInputHandler", "src\TMS.DotNet06.DayInputHandler\TMS.DotNet06.DayInputHandler.csproj", "{8D767ED0-61B9-46CB-A7EF-804241DF060E}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.DateInputHandler", "src\TMS.DotNet06.DateInputHandler\TMS.DotNet06.DateInputHandler.csproj", "{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}"
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.TaskList", "src\TMS.DotNet06.TaskList\TMS.DotNet06.TaskList.csproj", "{2E0C0391-53A7-4022-B307-D98409015D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.DotNet06.DayInputHandler", "src\TMS.DotNet06.DayInputHandler\TMS.DotNet06.DayInputHandler.csproj", "{8D767ED0-61B9-46CB-A7EF-804241DF060E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.DotNet06.DateInputHandler", "src\TMS.DotNet06.DateInputHandler\TMS.DotNet06.DateInputHandler.csproj", "{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.DotNet06.TaskList", "src\TMS.DotNet06.TaskList\TMS.DotNet06.TaskList.csproj", "{2E0C0391-53A7-4022-B307-D98409015D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.ZooManager", "src\TMS.DotNet06.ZooManager\TMS.DotNet06.ZooManager.csproj", "{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,11 +24,15 @@ Global
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.Build.0 = Release|Any CP
+		{0BC39A75-C7E6-44CC-8DF2-73A8BAA7A43F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E0C0391-53A7-4022-B307-D98409015D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2E0C0391-53A7-4022-B307-D98409015D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E0C0391-53A7-4022-B307-D98409015D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E0C0391-53A7-4022-B307-D98409015D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
