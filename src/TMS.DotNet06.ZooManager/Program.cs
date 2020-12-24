@@ -7,7 +7,8 @@ namespace TMS.DotNet06.ZooManager
         static void Main(string[] args)
         {
             var westCoastZoo = new Managers.ZooManager("West Coast Zoo");
-
+            westCoastZoo.ShowHeadLine();
+            westCoastZoo.ShowMenu();
             westCoastZoo.MenuHandler();
         }
     }
