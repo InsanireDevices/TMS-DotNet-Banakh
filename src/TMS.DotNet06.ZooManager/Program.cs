@@ -6,8 +6,9 @@ namespace TMS.DotNet06.ZooManager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var westCoastZoo = new Managers.ZooManager("West Coast Zoo");
+
+            westCoastZoo.MenuHandler();
         }
     }
 }

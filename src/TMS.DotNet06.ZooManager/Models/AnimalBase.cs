@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TMS.DotNet06.ZooManager.Models
 {
@@ -9,5 +7,6 @@ namespace TMS.DotNet06.ZooManager.Models
         public string name { get; set; }
         public string sex { get; set; }
         public int age { get; set; }
+        
     }
 }
