@@ -71,7 +71,7 @@ namespace TMS.DotNet06.ATM
         private void WithdrawFromAccount()
         {
             decimal withdrawed = bankAccount.CoinsParser();
-            if (withdrawed < bankAccount.AccountAmount)
+            if (withdrawed <= bankAccount.AccountAmount)
             {
                 bankAccount.AccountAmount -= withdrawed;
                 Notify?.Invoke($"From Account Withdrawed {withdrawed} coins");
