@@ -6,7 +6,7 @@ namespace TMS.DotNet06.ATM
 {
     public class BankAccount
     {
-        public decimal AccountAmount { get; set; }
+        internal decimal AccountAmount { get; set; }
         public BankAccount()
         {
             decimal accountAmount = CoinsParser();

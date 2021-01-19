@@ -6,13 +6,12 @@ namespace TMS.DotNet06.ATM
 {
     class ATM
     {
-        public delegate void AccountHandler(string message);
+        private delegate void AccountHandler(string message);
 
-        public event AccountHandler Notify;
-        public event AccountHandler NotifyError;
+        private event AccountHandler Notify;
+        private event AccountHandler NotifyError;
 
-
-        public BankAccount bankAccount { get; set; }
+        private BankAccount bankAccount { get; set; }
 
         public ATM(BankAccount account)
         {
