@@ -6,7 +6,9 @@ namespace TMS.DotNet06.ATM
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome To Cash'O Mate!");
+            var account = new BankAccount();
+            var cashOMate = new ATM(account);           
+            cashOMate.ShowMenu();
             Console.ReadKey();
         }
     }

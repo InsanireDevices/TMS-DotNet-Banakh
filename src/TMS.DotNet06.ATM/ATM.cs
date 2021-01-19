@@ -6,11 +6,22 @@ namespace TMS.DotNet06.ATM
 {
     class ATM
     {
-        public ATM()
+        public delegate void AccountHandler(string message);
+
+        public event AccountHandler Notify;
+        public event AccountHandler NotifyError;
+
+
+        public BankAccount bankAccount { get; set; }
+
+        public ATM(BankAccount account)
         {
+            bankAccount = account;
+            this.Notify += SendPushNotification;
+            this.NotifyError += SendErrorNotification;
         }
         
-        void ShowMenu()
+        public void ShowMenu()
         {
             Console.WriteLine("-------------MENU------------");
             Console.WriteLine("Top Up Account         -> [T]");
@@ -18,21 +29,27 @@ namespace TMS.DotNet06.ATM
             Console.WriteLine("Display Actual Balance -> [D]");
             Console.WriteLine("Close App              -> [C]");
             Console.WriteLine("------------------------------\n");
+            MenuInputHandler();
         }
 
-        void MenuInputHandler()
+        private void MenuInputHandler()
         {
             string actionSelector;
 
-            Console.WriteLine("Choose Action : ");
+            Console.Write("Choose Action : ");
 
             actionSelector = Console.ReadLine();
 
             switch (actionSelector)
             {
                 case "T":
+                    TopUpAccount();
                     break;
                 case "W":
+                    WithdrawFromAccount();
+                    break;
+                case "D":
+                    DisplayActualBalance();
                     break;
                 case "C":
                     Environment.Exit(1);
@@ -41,6 +58,49 @@ namespace TMS.DotNet06.ATM
                     MenuInputHandler();
                     break;
             }
+        }
+
+        private void TopUpAccount()
+        {
+            decimal topedUp = bankAccount.CoinsParser();
+            bankAccount.AccountAmount += topedUp;
+            Notify?.Invoke($"Account topped up with {topedUp} coins");
+            ShowMenu();
+        }
+
+        private void WithdrawFromAccount()
+        {
+            decimal withdrawed = bankAccount.CoinsParser();
+            if (withdrawed < bankAccount.AccountAmount)
+            {
+                bankAccount.AccountAmount -= withdrawed;
+                Notify?.Invoke($"From Account Withdrawed {withdrawed} coins");
+            }
+            else
+            {
+                NotifyError?.Invoke($"Insufficient Funds!");
+            }
+            ShowMenu();
+        }
+
+        private void DisplayActualBalance()
+        {
+            Notify?.Invoke($"Account Actual Balance {bankAccount.AccountAmount} coins");
+            ShowMenu();
+        }
+
+        private void SendPushNotification(string notification)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Push-notification : {notification}");
+            Console.ResetColor();
+        }
+
+        private void SendErrorNotification(string error)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"ERROR : {error}");
+            Console.ResetColor();
         }
     }
 }
