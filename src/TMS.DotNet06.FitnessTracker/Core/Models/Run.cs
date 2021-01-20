@@ -4,7 +4,8 @@ using System.Text;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Models
 {
-    class Run
+    class Run : Exercise<double>
     {
+        public double Speed { get; set; }
     }
 }
