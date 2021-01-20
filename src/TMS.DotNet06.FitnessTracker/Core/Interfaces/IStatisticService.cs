@@ -8,5 +8,9 @@ namespace TMS.DotNet06.FitnessTracker.Core.Interfaces
     {
         event Action<string, DateTime> StatusNotification;
         event Action<string> ErrorNotification;
+
+        void GetPPM();
+        void GetCount();
+        void GetSpeed();
     }
 }

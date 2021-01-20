@@ -9,6 +9,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Models
         public string Name { get; set; }
         public DateTime ExerciseStart { get; set; }
         public DateTime ExerciseEnd { get; set; }
+        public TimeSpan ExerciseTimeSpan { get; set; }
         public T SpecificData { get; set; }
     }
 }

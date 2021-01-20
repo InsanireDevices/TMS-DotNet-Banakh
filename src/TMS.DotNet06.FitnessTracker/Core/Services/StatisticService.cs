@@ -9,5 +9,20 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
     {
         public event Action<string, DateTime> StatusNotification;
         public event Action<string> ErrorNotification;
+
+        public void GetCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetPPM()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetSpeed()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
