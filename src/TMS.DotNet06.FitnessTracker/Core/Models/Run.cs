@@ -6,6 +6,6 @@ namespace TMS.DotNet06.FitnessTracker.Core.Models
 {
     class Run : Exercise<double>
     {
-        public double Speed { get; set; }
+        public double Distance { get; set; }
     }
 }

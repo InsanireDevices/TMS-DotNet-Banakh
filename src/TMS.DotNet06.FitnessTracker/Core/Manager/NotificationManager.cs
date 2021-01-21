@@ -6,14 +6,14 @@ namespace TMS.DotNet06.FitnessTracker.Core.Manager
 {
     class NotificationManager
     {
-        public void SendStatusNotification(string notification, DateTime dateTime)
+        public static void SendStatusNotification(string notification)
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"[{dateTime}] : {notification}");
+            Console.WriteLine($"[{DateTime.Now}] : {notification}");
             Console.ResetColor();
         }
 
-        public void SendErrorNotification(string notification)
+        public static void SendErrorNotification(string notification)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"[{DateTime.Now}] ERROR : {notification}");

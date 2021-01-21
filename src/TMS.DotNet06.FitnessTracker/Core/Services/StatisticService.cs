@@ -2,27 +2,31 @@
 using System.Collections.Generic;
 using System.Text;
 using TMS.DotNet06.FitnessTracker.Core.Interfaces;
+using TMS.DotNet06.FitnessTracker.Core.Models;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Services
 {
     class StatisticService : IStatisticService
     {
-        public event Action<string, DateTime> StatusNotification;
+        public event Action<string> StatusNotification;
         public event Action<string> ErrorNotification;
 
-        public void GetCount()
+        public int GetCount(User user)
         {
-            throw new NotImplementedException();
+            var count = 0;
+            return count;
         }
 
-        public void GetPPM()
+        public int GetPulsePerMinure(User user)
         {
-            throw new NotImplementedException();
+            var pulse = 0;
+            return pulse;
         }
 
-        public void GetSpeed()
+        public double GetSpeed(User user)
         {
-            throw new NotImplementedException();
+            var speed = 0;
+            return speed;
         }
     }
 }

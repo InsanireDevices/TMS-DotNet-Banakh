@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using TMS.DotNet06.FitnessTracker.Core.Enums;
+using TMS.DotNet06.FitnessTracker.Core.Models;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Interfaces
 {
     interface IFunctionalService
     {
-        event Action<string, DateTime> StatusNotification;
+        event Action<string> StatusNotification;
         event Action<string> ErrorNotification;
 
-        void ShowExerciseStatistic();
-        void ShowFullStatistic();
-        void AddNewStatistic();
+        void ShowTrainings(User user);
+        void ShowExersiseProgress(User user);
+        void AddNewExercise(User user, Exercises exercise, DateTime exerciseStart, DateTime exerciseEnd, double units);
     }
 }

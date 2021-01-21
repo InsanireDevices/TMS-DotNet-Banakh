@@ -48,10 +48,10 @@ namespace TMS.DotNet06.FitnessTracker.Core.Models
         /// <summary>
         /// List of all user push up series
         /// </summary>
-        public List<PushUps> PushUps { get; set; } = new List<PushUps>();
+        public List<PushUpSeries> PushUps { get; set; } = new List<PushUpSeries>();
         /// <summary>
         /// List of all user squat series
         /// </summary>
-        public List<Squats> Squats { get; set; } = new List<Squats>();
+        public List<SquatSeries> Squats { get; set; } = new List<SquatSeries>();
     }
 }
