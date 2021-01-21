@@ -14,9 +14,9 @@ namespace TMS.DotNet06.FitnessTracker
 
             //Some initializations for services and events
             var functioalService = new FunctionalService();
-            var statisticService = new StatisticService();
             functioalService.StatusNotification += NotificationManager.SendStatusNotification;
             functioalService.ErrorNotification += NotificationManager.SendErrorNotification;
+            
 
             // Add User Entity
             var habib = new User("Хабиб", 75, 182, 25, Sex.Male);
@@ -29,21 +29,27 @@ namespace TMS.DotNet06.FitnessTracker
             Console.WriteLine($"Sex    : {habib.Sex}\n");
 
             // Add Some Exercises To Our User
-            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 12, 8, 30, 0), new DateTime(2021, 01, 12, 9, 30, 0), 100);
-            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 13, 8, 30, 0), new DateTime(2021, 01, 13, 9, 30, 0), 110);
-            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 14, 8, 30, 0), new DateTime(2021, 01, 14, 9, 30, 0), 120);
+            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 12, 8, 30, 0), new DateTime(2021, 01, 12, 9, 30, 0), 50);
+            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 13, 8, 30, 0), new DateTime(2021, 01, 13, 9, 30, 0), 60);
+            functioalService.AddNewExercise(habib, Exercises.PushUps, new DateTime(2021, 01, 14, 8, 30, 0), new DateTime(2021, 01, 14, 9, 30, 0), 70);
 
             functioalService.AddNewExercise(habib, Exercises.Squats, new DateTime(2021, 01, 12, 9, 35, 0), new DateTime(2021, 01, 12, 10, 35, 0), 100);
             functioalService.AddNewExercise(habib, Exercises.Squats, new DateTime(2021, 01, 13, 9, 35, 0), new DateTime(2021, 01, 13, 10, 35, 0), 110);
             functioalService.AddNewExercise(habib, Exercises.Squats, new DateTime(2021, 01, 14, 9, 35, 0), new DateTime(2021, 01, 14, 10, 35, 0), 120);
             
-            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 12, 10, 40, 0), new DateTime(2021, 01, 12, 11, 45, 0), 5000);
-            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 13, 10, 40, 0), new DateTime(2021, 01, 13, 11, 45, 0), 6000);
-            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 14, 10, 40, 0), new DateTime(2021, 01, 14, 11, 45, 0), 7000);
+            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 12, 10, 40, 0), new DateTime(2021, 01, 12, 11, 45, 0), 9000);
+            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 13, 10, 40, 0), new DateTime(2021, 01, 13, 11, 45, 0), 10000);
+            functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 14, 10, 40, 0), new DateTime(2021, 01, 14, 11, 45, 0), 11000);
 
             //Show Our User Activities
             functioalService.ShowTrainings(habib);
             functioalService.ShowExersiseProgress(habib);
+
+            //Show User Statistic
+            Console.WriteLine($"Push-ups in avarage : {habib.AvaragePushUps}");
+            Console.WriteLine($"Run distanse in avarage : {habib.AvarageRunDistance}");
+            Console.WriteLine($"Squats in avarage : {habib.AvarageSquats}");
+            Console.WriteLine($"Avarage pulse : {habib.AvarageExercisePulse}");
 
             Console.ReadKey();
         }

@@ -2,7 +2,9 @@
 using System.Linq;
 using TMS.DotNet06.FitnessTracker.Core.Enums;
 using TMS.DotNet06.FitnessTracker.Core.Interfaces;
+using TMS.DotNet06.FitnessTracker.Core.Manager;
 using TMS.DotNet06.FitnessTracker.Core.Models;
+using TMS.DotNet06.FitnessTracker.Core.Services;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Services
 {
@@ -26,6 +28,10 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
         /// <param name="units">Specific unit of exercise (distance\times etc.)</param>
         public void AddNewExercise(User user, Exercises exercise, DateTime exerciseStart, DateTime exerciseEnd, double units)
         {
+            var statisticService = new StatisticService();
+            statisticService.StatusNotification += NotificationManager.SendStatusNotification;
+            statisticService.ErrorNotification += NotificationManager.SendErrorNotification;
+
             switch (exercise)
             {
                 case Exercises.PushUps:
@@ -39,6 +45,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                     };
                     user.PushUps.Add(newPushUps);
                     StatusNotification?.Invoke($"Push Ups #{user.PushUps.Count} for user {user.Name} successfully added!");
+                    user.AvaragePushUps = statisticService.GetAverageStatistic(user, exercise);
                     break;
 
                 case Exercises.Run:
@@ -52,6 +59,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                     };
                     user.Runs.Add(newRun);
                     StatusNotification?.Invoke($"Run #{user.Runs.Count} for user {user.Name} successfully added!");
+                    user.AvarageRunDistance = statisticService.GetAverageStatistic(user, exercise);
                     break;
 
                 case Exercises.Squats:
@@ -65,12 +73,14 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                     };
                     user.Squats.Add(newSquats);
                     StatusNotification?.Invoke($"Squats #{user.Squats.Count} for user {user.Name} successfully added!");
+                    user.AvarageSquats = statisticService.GetAverageStatistic(user, exercise);
                     break;
 
                 default:
                     ErrorNotification?.Invoke("No such Exercise!");
                     break;
             }
+            user.AvarageExercisePulse = statisticService.GetPulsePerMinute(user, exercise);
         }
         /// <summary>
         /// Method which sort exercises by date and form them in trainings
