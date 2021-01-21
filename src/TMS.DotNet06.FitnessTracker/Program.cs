@@ -41,7 +41,7 @@ namespace TMS.DotNet06.FitnessTracker
             functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 13, 10, 40, 0), new DateTime(2021, 01, 13, 11, 45, 0), 6000);
             functioalService.AddNewExercise(habib, Exercises.Run, new DateTime(2021, 01, 14, 10, 40, 0), new DateTime(2021, 01, 14, 11, 45, 0), 7000);
 
-            // Show Our User Activities
+            //Show Our User Activities
             functioalService.ShowTrainings(habib);
             functioalService.ShowExersiseProgress(habib);
 
