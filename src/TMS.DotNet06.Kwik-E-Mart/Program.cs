@@ -10,21 +10,27 @@ namespace KwikEMart
         {
             Console.WriteLine("Welcome to Kwik-E-Mart!");
             var customerService = new CustomerService();
-            
-            var kwikEMart = new Shop(5);
-            foreach (var item in kwikEMart.Checkouts)
-            {
-                Console.WriteLine(item.CheckoutNumber);
-            }
-
             var kwikEMartService = new ShopService();
+            var kwikCheckoutService = new CheckoutService();
 
-            kwikEMartService.OpenShop(kwikEMart);
+            var kwikEMart = new Shop(5);
+
+            kwikEMartService.OpenShop(kwikEMart, customerService ,kwikCheckoutService);
 
             customerService.Generator();
+            customerService.Generator();
+            customerService.Generator();
+            customerService.Generator();
+            customerService.Generator();
+            customerService.Generator();
+            customerService.AddToQueue();
+            customerService.AddToQueue();
+            customerService.AddToQueue();
+            customerService.AddToQueue();
             customerService.AddToQueue();
 
-            Console.ReadKey();
+            //kwikCheckoutService.TakeCustomerFromQueue(customerService);
+
             Console.ReadKey();
         }
     }
