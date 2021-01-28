@@ -12,6 +12,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TMS.DotNet06.ZooManager", "src\TMS.DotNet06.ZooManager\TMS.DotNet06.ZooManager.csproj", "{4C607F1B-AEC3-4FAE-8B3F-F51B81D6EACD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.FitnessTracker", "src\TMS.DotNet06.FitnessTracker\TMS.DotNet06.FitnessTracker.csproj", "{D8AFD859-BA65-4FB5-94CF-386202CFB8AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TMS.DotNet06.ATM", "src\TMS.DotNet06.ATM\TMS.DotNet06.ATM.csproj", "{65F5DB15-9142-4092-97EF-972979F2DB12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +40,10 @@ Global
 		{D8AFD859-BA65-4FB5-94CF-386202CFB8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8AFD859-BA65-4FB5-94CF-386202CFB8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8AFD859-BA65-4FB5-94CF-386202CFB8AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F5DB15-9142-4092-97EF-972979F2DB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F5DB15-9142-4092-97EF-972979F2DB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F5DB15-9142-4092-97EF-972979F2DB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F5DB15-9142-4092-97EF-972979F2DB12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
