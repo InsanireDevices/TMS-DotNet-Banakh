@@ -4,6 +4,7 @@ using System.Text;
 using TMS.DotNet06.FitnessTracker.Core.Enums;
 using TMS.DotNet06.FitnessTracker.Core.Interfaces;
 using TMS.DotNet06.FitnessTracker.Core.Models;
+using System.Linq;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Services
 {
@@ -28,31 +29,13 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
             switch(exercise)
             {
                 case Exercises.PushUps:
-                    double pushUpsCount = user.AvaragePushUps;
-                    foreach (var item in user.PushUps)
-                    {
-                        pushUpsCount += item.Units;
-                    }
-                    StatusNotification?.Invoke("Push-ups statistic updated!");
-                    return pushUpsCount / user.PushUps.Count;
-                
+                    return user.PushUps.Average(a => a.Count);
+
                 case Exercises.Run:
-                    double distance = user.AvarageRunDistance;
-                    foreach (var item in user.Runs)
-                    {
-                        distance += item.Units;
-                    }
-                    StatusNotification?.Invoke("Runs statistic updated!");
-                    return distance / user.Runs.Count;
+                    return user.Runs.Average(a => a.Distance);
 
                 case Exercises.Squats:
-                    double squatsCount = user.AvarageSquats;
-                    foreach (var item in user.Squats)
-                    {
-                        squatsCount += item.Units;
-                    }
-                    StatusNotification?.Invoke("Squats statistic updated!");
-                    return squatsCount / user.Squats.Count;
+                    return user.Squats.Average(a => a.Count);
                 default:
                     ErrorNotification?.Invoke("No such exercise!");
                     return -1;

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Models
 {
-    abstract class Exercise<T>
+    abstract class Exercise//<T>
     {
         /// <summary>
         /// Name of exercise
@@ -25,6 +25,6 @@ namespace TMS.DotNet06.FitnessTracker.Core.Models
         /// <summary>
         /// Specific units of measurements for exercise
         /// </summary>
-        public T Units { get; set; }
+        //public T Units { get; set; }
     }
 }

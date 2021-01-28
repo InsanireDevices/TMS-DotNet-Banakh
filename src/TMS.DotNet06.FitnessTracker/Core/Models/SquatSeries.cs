@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TMS.DotNet06.FitnessTracker.Core.Models
 {
-    class SquatSeries : Exercise<int>
+    class SquatSeries : Exercise//<int>
     {
         /// <summary>
         /// Count of squats User done during the exercise

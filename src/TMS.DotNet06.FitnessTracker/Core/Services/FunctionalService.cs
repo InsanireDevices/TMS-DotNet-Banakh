@@ -41,7 +41,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                         ExerciseStart = exerciseStart,
                         ExerciseEnd = exerciseEnd,
                         ExerciseTimeSpan = exerciseEnd - exerciseStart,
-                        Units = (int)units,
+                        Count = (int)units,
                     };
                     user.PushUps.Add(newPushUps);
                     StatusNotification?.Invoke($"Push Ups #{user.PushUps.Count} for user {user.Name} successfully added!");
@@ -55,7 +55,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                         ExerciseStart = exerciseStart,
                         ExerciseEnd = exerciseEnd,
                         ExerciseTimeSpan = exerciseEnd - exerciseStart,
-                        Units = units,
+                        Distance = units,
                     };
                     user.Runs.Add(newRun);
                     StatusNotification?.Invoke($"Run #{user.Runs.Count} for user {user.Name} successfully added!");
@@ -69,7 +69,7 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                         ExerciseStart = exerciseStart,
                         ExerciseEnd = exerciseEnd,
                         ExerciseTimeSpan = exerciseEnd - exerciseStart,
-                        Units = (int)units,
+                        Count = (int)units,
                     };
                     user.Squats.Add(newSquats);
                     StatusNotification?.Invoke($"Squats #{user.Squats.Count} for user {user.Name} successfully added!");
@@ -93,21 +93,21 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
                 .Select(p => new
                 {
                     p.Name,
-                    Units = $"Number of times : {p.Units}",
+                    Units = $"Number of times : {p.Count}",
                     Date = p.ExerciseStart,
                 })
                     .Concat(user.Squats
                         .Select(s => new
                         {
                             s.Name,
-                            Units = $"Number of times : {s.Units}",
+                            Units = $"Number of times : {s.Count}",
                             Date = s.ExerciseStart,
                         })
                             .Concat(user.Runs
                             .Select(r => new
                             {
                                 r.Name,
-                                Units = $"Distance in meters: {r.Units}",
+                                Units = $"Distance in meters: {r.Distance}",
                                 Date = r.ExerciseStart,
                             })))
                     .OrderBy(t => t.Date);
@@ -137,19 +137,19 @@ namespace TMS.DotNet06.FitnessTracker.Core.Services
             Console.WriteLine($"\nPush Ups of {user.Name}: ");
             foreach (var pushUps in user.PushUps)
             {
-                Console.WriteLine($"[{pushUps.ExerciseStart.ToShortDateString()}] : [{pushUps.Units}] - [{pushUps.ExerciseTimeSpan}]");
+                Console.WriteLine($"[{pushUps.ExerciseStart.ToShortDateString()}] : [{pushUps.Count}] - [{pushUps.ExerciseTimeSpan}]");
             }
 
             Console.WriteLine($"\nRuns of {user.Name}: ");
             foreach (var run in user.Runs)
             {
-                Console.WriteLine($"[{run.ExerciseStart.ToShortDateString()}] : [{run.Units}] - [{run.ExerciseTimeSpan}]");
+                Console.WriteLine($"[{run.ExerciseStart.ToShortDateString()}] : [{run.Distance}] - [{run.ExerciseTimeSpan}]");
             }
 
             Console.WriteLine($"\nSquats of {user.Name}: ");
             foreach (var squats in user.Squats)
             {
-                Console.WriteLine($"[{squats.ExerciseStart.ToShortDateString()}] : [{squats.Units}] - [{squats.ExerciseTimeSpan}]");
+                Console.WriteLine($"[{squats.ExerciseStart.ToShortDateString()}] : [{squats.Count}] - [{squats.ExerciseTimeSpan}]");
             }
             Console.WriteLine("\n-------------------------------");
         }
