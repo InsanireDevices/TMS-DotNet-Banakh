@@ -1,0 +1,49 @@
+.body {
+    font-family: Tahoma, sans-serif;
+    color: #84C754;
+    background-color: black;
+    margin: 30px;
+    line-height: 40px;
+}
+
+.main-menu a{
+    color: #84C754;
+    text-decoration: none;
+}
+
+.main-menu a:hover{
+    color: white;
+}
+
+.main-menu ul li.selectedstyle a {
+    color: white;
+}
+
+.content a {
+    color: white;
+}
+
+.content a:hover{
+    color: #84C754;
+}
+
+.sidebar {
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.footer {
+    line-height: normal;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    border-radius: 5px;
+    padding: 20px;
+}
