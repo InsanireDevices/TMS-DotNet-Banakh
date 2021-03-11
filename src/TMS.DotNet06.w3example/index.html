@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="UTF-8" />
+    <script type="application/javascript" src="js/index.js"> </script>
+    <link rel="stylesheet" href="css/style1.css" />
 </head>
 
 <body class="body">
@@ -14,11 +16,11 @@
     </header>
     <nav class="main-menu">
         <ul>
-            <li class="selectedstyle"><a href="index1.html">Stylesheet 1</a></li>
-            <li><a href="index2.html">Stylesheet 2</a></li>
-            <li><a href="index3.html">Stylesheet 3</a></li>
-            <li><a href="index4.html">Stylesheet 4</a></li>
-            <li><a href="index.html">No Stylesheet</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleStyle('css/style1.css')">Stylesheet 1</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleStyle('css/style2.css')">Stylesheet 2</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleStyle('css/style3.css')">Stylesheet 3</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleStyle('css/style4.css')">Stylesheet 4</a></li>
+            <li><a href="javascript:void(0)" onclick="toggleStyle('css/style.css')">No Stylesheet</a></li>
         </ul>
     </nav>
     <div class="main">
@@ -27,15 +29,15 @@
             <div>
                 This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
                 <br/>
-                <a href="index1.html">Stylesheet1</a>,
-                <a href="index2.html">Stylesheet2</a>,
-                <a href="index3.html">Stylesheet3</a>,
-                <a href="index4.html">Stylesheet4</a>.
+                <a href="javascript:void(0)" onclick="toggleStyle('css/style1.css')">Stylesheet1</a>,
+                <a href="javascript:void(0)" onclick="toggleStyle('css/style2.css')">Stylesheet2</a>,
+                <a href="javascript:void(0)" onclick="toggleStyle('css/style3.css')">Stylesheet3</a>,
+                <a href="javascript:void(0)" onclick="toggleStyle('css/style4.css')">Stylesheet4</a>.
             </div>
             <h1>No Styles</h1>
             <div>
                 This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
-                <br/><a href="index.html">No Stylesheet</a>.
+                <br/><a href="javascript:void(0)" onclick="toggleStyle('css/style.css')">No Stylesheet</a>.
             </div>
 
         </div>
